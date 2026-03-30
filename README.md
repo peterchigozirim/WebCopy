@@ -4,7 +4,7 @@ A lightweight Node.js CLI tool that crawls a website and saves pages and same-si
 
 ## Features
 
-- **Headless crawling with Puppeteer**
+- **Headless crawling (Puppeteer)**
   - Renders pages in Chromium to capture JavaScript-generated content.
   - Waits for `networkidle2` to reduce the chance of saving incomplete pages.
 
@@ -27,7 +27,7 @@ A lightweight Node.js CLI tool that crawls a website and saves pages and same-si
   - Maps URLs to local files; paths ending in `/` or lacking an extension are saved as `index.html`.
 
 - **Same-site asset downloading**
-  - Collects and downloads common assets referenced by:
+  - Downloads common assets referenced by:
     - `img`
     - `script[src]`
     - `link[href]` (typically CSS)
@@ -40,12 +40,19 @@ A lightweight Node.js CLI tool that crawls a website and saves pages and same-si
 - **Readable console output**
   - Uses Chalk for clear, colorized status messages for pages, assets, and errors.
 
-## How it works (high level)
+## Requirements
 
-1. Launch a headless Chromium instance via Puppeteer.
-2. Navigate to the start URL.
-3. Save the fully rendered HTML to disk.
-4. Extract asset URLs from the page and download eligible assets.
-5. Extract internal links and continue crawling until `MAX_DEPTH` is reached.
+- Node.js (LTS recommended)
+- npm (bundled with Node.js)
 
-## Usage
+## Installation
+
+1. Clone or download this repository.
+2. Install dependencies (creates `node_modules/`) by running:
+   ```bash
+   npm install
+   ```
+3. Run the clone:
+   ```bash
+   npm clone <URL>
+   ```
